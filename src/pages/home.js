@@ -5,7 +5,10 @@ import axios from "axios";
 // MUI
 import Grid from "@material-ui/core/Grid";
 
-// COMPONENT
+// COMPONENTS
+import Shout from "../components/Shout";
+
+// HOME PAGE ROUTE /////////////////////////////////////////
 class home extends Component {
   state = {
     shouts: null,
@@ -23,9 +26,12 @@ class home extends Component {
       .catch((err) => console.log(err));
   }
 
+  // RENDER //
   render() {
     let recentShoutsMarkup = this.state.shouts ? (
-      this.state.shouts.map((shout) => <p>{shout.body}</p>)
+      this.state.shouts.map((shout) => (
+        <Shout key={shout.shoutId} shout={shout} />
+      ))
     ) : (
       <p>Loading...</p>
     );
@@ -41,5 +47,6 @@ class home extends Component {
     );
   }
 }
+/////////////////////////////////////////////
 
 export default home;
