@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import themeFile from "./util/theme";
+// REDUX
+import { Provider } from "react-redux";
+import store from "./redux/store";
 // MUI Stuff
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
@@ -39,8 +42,8 @@ if (token) {
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
-        <div className="App">
+      <Provider store={store}>
+        <MuiThemeProvider theme={theme}>
           <Router>
             <Navbar />
             <div className="container">
@@ -61,8 +64,8 @@ class App extends Component {
               </Switch>
             </div>
           </Router>
-        </div>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+      </Provider>
     );
   }
 }
