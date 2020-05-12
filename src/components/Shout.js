@@ -1,14 +1,14 @@
 // REACT
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// PLUGIN
+// PLUGINS
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 //MUI Stuff
 import { withStyles } from "@material-ui/core/styles";
 import { Card, Typography, CardContent, CardMedia } from "@material-ui/core";
 
-// STYLES
+// STYLES for COMPONENT
 const styles = {
   card: {
     display: "flex",
