@@ -59,12 +59,6 @@ export const logoutUser = () => (dispatch) => {
   dispatch({ type: SET_UNAUTHENTICATED });
 };
 
-const setAuthorizationHeader = (token) => {
-  const FBIdToken = `Bearer ${token}`;
-  localStorage.setItem("FBIdToken", `Bearer ${token}`);
-  axios.defaults.headers.common["Authorization"] = FBIdToken;
-};
-
 // GET USER DATA //
 export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
@@ -77,4 +71,33 @@ export const getUserData = () => (dispatch) => {
       });
     })
     .catch((err) => console.log(err));
+};
+
+// UPLOAD IMAGE
+export const uploadImage = (formData) => (dispatch) => {
+  dispatch({ type: LOADING_USER });
+  axios
+    .post("/user/image", formData)
+    .then((res) => {
+      dispatch(getUserData());
+    })
+    .catch((err) => console.error(err));
+};
+
+// EDIT USER DETAILS
+export const editUserDetails = (userDetails) => (dispatch) => {
+  dispatch({ type: LOADING_USER });
+  axios
+    .post("/user", userDetails)
+    .then(() => {
+      dispatch(getUserData());
+    })
+    .catch((err) => console.error(err));
+};
+
+// HELPERS
+const setAuthorizationHeader = (token) => {
+  const FBIdToken = `Bearer ${token}`;
+  localStorage.setItem("FBIdToken", `Bearer ${token}`);
+  axios.defaults.headers.common["Authorization"] = FBIdToken;
 };
