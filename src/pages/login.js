@@ -17,7 +17,6 @@ import { loginUser } from "../redux/actions/userActions";
 
 // IMAGES
 import AppIcon from "../images/expletive-emoji.png";
-import axios from "axios";
 
 // STYLES
 const styles = {
@@ -56,6 +55,11 @@ class login extends Component {
       password: "",
       errors: [],
     };
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
   }
   // ON FORM SUBMIT //
   handleSubmit = (event) => {
@@ -147,9 +151,9 @@ class login extends Component {
 
 login.propTypes = {
   classes: PropTypes.object.isRequired,
-  loginUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   UI: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -157,11 +161,11 @@ const mapStateToProps = (state) => ({
   UI: state.ui,
 });
 
-const mapActionsToProp = {
+const mapActionsToProps = {
   loginUser,
 };
 
 export default connect(
   mapStateToProps,
-  mapActionsToProp
+  mapActionsToProps
 )(withStyles(styles)(login));

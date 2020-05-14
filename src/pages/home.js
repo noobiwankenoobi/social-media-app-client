@@ -1,14 +1,15 @@
 // REACT
 import React, { Component } from "react";
 import axios from "axios";
-
 // MUI
 import Grid from "@material-ui/core/Grid";
-
 // COMPONENTS
 import Shout from "../components/Shout";
+import Profile from "../components/Profile";
 
-// HOME PAGE ROUTE /////////////////////////////////////////
+//////////////////////
+// HOME PAGE ROUTE //
+///////////////////////////////////////
 class home extends Component {
   state = {
     shouts: null,
@@ -41,7 +42,7 @@ class home extends Component {
           {recentShoutsMarkup}
         </Grid>
         <Grid item sm={4} xs={12}>
-          <p>Profile...</p>
+          <Profile />
         </Grid>
       </Grid>
     );
