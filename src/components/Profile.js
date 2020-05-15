@@ -55,7 +55,7 @@ const styles = (theme) => ({
         verticalAlign: "middle",
       },
       "& a": {
-        color: theme.palette.primary.main,
+        // color: theme.palette.primary.main,
       },
     },
     "& hr": {

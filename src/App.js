@@ -48,8 +48,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
-          <Router>
+        <Router>
+          <MuiThemeProvider theme={theme}>
             <Navbar />
             <div className="container">
               <Switch>
@@ -58,8 +58,8 @@ class App extends Component {
                 <AuthRoute exact path="/signup" component={signup} />
               </Switch>
             </div>
-          </Router>
-        </MuiThemeProvider>
+          </MuiThemeProvider>
+        </Router>
       </Provider>
     );
   }

@@ -1,4 +1,4 @@
-import deepOrange from "@material-ui/core/colors/deepOrange";
+import { yellow, deepOrange } from "@material-ui/core/colors";
 
 export default {
   palette: {

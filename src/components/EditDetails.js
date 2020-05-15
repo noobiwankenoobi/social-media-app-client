@@ -21,7 +21,10 @@ import { editUserDetails } from "../redux/actions/userActions";
 
 // STYLES
 const styles = (theme) => ({
-  ...theme,
+  ...theme.spreadThis,
+  button: {
+    float: "right",
+  },
 });
 
 ///////////////////
@@ -146,6 +149,9 @@ const mapStateToProps = (state) => ({
   credentials: state.user.credentials,
 });
 
-export default connect(mapStateToProps, { editUserDetails })(
-  withStyles(styles)(EditDetails)
-);
+const mapActionsToProps = { editUserDetails };
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(EditDetails));
