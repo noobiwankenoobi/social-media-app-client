@@ -15,6 +15,7 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 // COMPONENTS
 import DeleteShout from "./DeleteShout";
+import ShoutDialog from "./ShoutDialog";
 // REDUX
 import { connect } from "react-redux";
 import { likeShout, unlikeShout } from "../redux/actions/dataActions";
@@ -129,6 +130,7 @@ class Shout extends Component {
             <ChatIcon color="primary" />
           </MyButton>
           <span>{commentCount} Comments</span>
+          <ShoutDialog shoutId={shoutId} userHandle={userHandle} />
         </CardContent>
       </Card>
     );

@@ -7,6 +7,7 @@ export const LOADING_USER = "LOADING_USER";
 export const SET_ERRORS = "SET_ERRORS";
 export const LOADING_UI = "LOADING_UI";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const STOP_LOADING_UI = "STOP_LOADING_UI";
 // DATA REDUCER TYPES
 export const SET_SHOUTS = "SET_SHOUTS";
 export const SET_SHOUT = "SET_SHOUT";

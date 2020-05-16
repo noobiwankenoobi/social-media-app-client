@@ -8,12 +8,14 @@ import {
   SET_ERRORS,
   CLEAR_ERRORS,
   LOADING_UI,
+  SET_SHOUT,
+  STOP_LOADING_UI,
 } from "../types";
 import axios from "axios";
 
-/////////////////
-// GET SHOUTS //
-/////////////////////////////////////
+/////////////////////
+// GET ALL SHOUTS //
+////////////////////////////////////////
 export const getShouts = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
@@ -32,6 +34,24 @@ export const getShouts = () => (dispatch) => {
     });
 };
 //////////////////////////////////////////
+
+////////////////////
+// GET ONE SHOUT //
+/////////////////////////////////////////
+export const getShout = (shoutId) => (dispatch) => {
+  dispatch({ type: LOADING_UI });
+  axios
+    .get(`/shout/${shoutId}`)
+    .then((res) => {
+      dispatch({
+        type: SET_SHOUT,
+        payload: res.data,
+      });
+      dispatch({ type: STOP_LOADING_UI });
+    })
+    .catch((err) => console.log(err));
+};
+/////////////////////////////////////////
 
 ///////////////////
 // POST a SHOUT //
