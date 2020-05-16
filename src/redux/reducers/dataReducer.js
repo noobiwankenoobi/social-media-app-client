@@ -36,10 +36,10 @@ export default function (state = initialState, action) {
         ...state,
       };
     case DELETE_SHOUT:
-      index = state.shouts.findIndex(
+      let indexOfDeleted = state.shouts.findIndex(
         (shout) => shout.shoutId === action.payload
       );
-      state.shouts.splice(index, 1);
+      state.shouts.splice(indexOfDeleted, 1);
       return {
         ...state,
       };

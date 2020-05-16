@@ -57,8 +57,8 @@ class login extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    if (nextProps.UI.errors) {
-      this.setState({ errors: nextProps.UI.errors });
+    if (nextProps.ui.errors) {
+      this.setState({ errors: nextProps.ui.errors });
     }
   }
   // ON FORM SUBMIT //
@@ -83,7 +83,7 @@ class login extends Component {
     // PROPS
     const {
       classes,
-      UI: { loading },
+      ui: { loading },
     } = this.props;
     const { errors } = this.state;
     return (
@@ -152,13 +152,13 @@ class login extends Component {
 login.propTypes = {
   classes: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-  UI: PropTypes.object.isRequired,
+  ui: PropTypes.object.isRequired,
   loginUser: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  UI: state.ui,
+  ui: state.ui,
 });
 
 const mapActionsToProps = {

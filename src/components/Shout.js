@@ -119,10 +119,10 @@ class Shout extends Component {
             {userHandle}
           </Typography>
           {deleteButton}
-          <Typography variant="body1">{body}</Typography>
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>
+          <Typography variant="body1">{body}</Typography>
           {likeButton}
           <span>{likeCount} Likes</span>
           <MyButton tip="comments">

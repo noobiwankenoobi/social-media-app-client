@@ -53,7 +53,7 @@ class PostShout extends Component {
         errors: nextProps.ui.errors,
       });
     }
-    if (!nextProps.ui.errors) {
+    if (!nextProps.ui.errors && !nextProps.ui.loading) {
       this.setState({ body: "", open: false, errors: {} });
     }
   };
@@ -143,7 +143,7 @@ class PostShout extends Component {
 
 PostShout.propTypes = {
   postShout: PropTypes.func.isRequired,
-  UI: PropTypes.object.isRequired,
+  ui: PropTypes.object.isRequired,
   clearErrors: PropTypes.func.isRequired,
 };
 
