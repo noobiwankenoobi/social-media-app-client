@@ -17,15 +17,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import DeleteShout from "./DeleteShout";
 // REDUX
 import { connect } from "react-redux";
-import {
-  likeShout,
-  unlikeShout,
-  deleteShout,
-} from "../redux/actions/dataActions";
+import { likeShout, unlikeShout } from "../redux/actions/dataActions";
 
 // STYLES for COMPONENT
 const styles = {
   card: {
+    position: "relative",
     display: "flex",
     marginBottom: 20,
   },

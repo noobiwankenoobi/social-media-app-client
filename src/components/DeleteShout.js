@@ -3,10 +3,8 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 //MUI Stuff
 import { withStyles } from "@material-ui/core/styles";
-import { Card, Typography, CardContent, CardMedia } from "@material-ui/core";
 import MyButton from "../util/MyButton";
 // ICONS
-import ChatIcon from "@material-ui/icons/Chat";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -17,7 +15,13 @@ import DeleteIcon from "@material-ui/icons/DeleteOutline";
 import { connect } from "react-redux";
 import { deleteShout } from "../redux/actions/dataActions";
 
-const styles = {};
+const styles = {
+  deleteButton: {
+    position: "absolute",
+    top: "10%",
+    left: "90%",
+  },
+};
 
 ///////////////////
 // DELETE SHOUT //

@@ -1,6 +1,5 @@
 // REACT
 import React, { Component } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 // MUI
 import Grid from "@material-ui/core/Grid";
@@ -43,7 +42,7 @@ class home extends Component {
 }
 /////////////////////////////////////////////
 home.propTypes = {
-  getShout: PropTypes.func.isRequired,
+  getShouts: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
 };
 

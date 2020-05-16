@@ -4,6 +4,7 @@ import {
   UNLIKE_SHOUT,
   LOADING_DATA,
   DELETE_SHOUT,
+  POST_SHOUT,
 } from "../types";
 
 const initialState = {
@@ -41,6 +42,11 @@ export default function (state = initialState, action) {
       state.shouts.splice(index, 1);
       return {
         ...state,
+      };
+    case POST_SHOUT:
+      return {
+        ...state,
+        shouts: [action.payload, ...state.shouts],
       };
     default:
       return state;

@@ -14,3 +14,4 @@ export const LIKE_SHOUT = "LIKE_SHOUT";
 export const UNLIKE_SHOUT = "UNLIKE_SHOUT";
 export const LOADING_DATA = "LOADING_DATA";
 export const DELETE_SHOUT = "DELETE_SHOUT";
+export const POST_SHOUT = "POST_SHOUT";

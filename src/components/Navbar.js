@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 //COMPONENTS
 import MyButton from "../util/MyButton";
+import PostShout from "./PostShout";
 // ICONS
-import AddIcon from "@material-ui/icons/Add";
 import HomeIcon from "@material-ui/icons/Home";
 import Notifications from "@material-ui/icons/Notifications";
 // MUI Stuff
@@ -23,9 +23,7 @@ class Navbar extends Component {
         <Toolbar className="nav-container">
           {authenticated ? (
             <Fragment>
-              <MyButton tip="Post a shout">
-                <AddIcon color="secondary" />
-              </MyButton>
+              <PostShout />
               <Link to="/">
                 <MyButton tip="Home">
                   <HomeIcon color="secondary" />
