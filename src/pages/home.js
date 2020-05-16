@@ -1,8 +1,13 @@
 // REACT
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 // MUI
 import Grid from "@material-ui/core/Grid";
+// REDUX
+import { connect } from "react-redux";
+import { getShouts } from "../redux/actions/dataActions";
+
 // COMPONENTS
 import Shout from "../components/Shout";
 import Profile from "../components/Profile";
@@ -11,28 +16,16 @@ import Profile from "../components/Profile";
 // HOME PAGE ROUTE //
 ///////////////////////////////////////
 class home extends Component {
-  state = {
-    shouts: null,
-  };
-
   componentDidMount() {
-    axios
-      .get("/shouts")
-      .then((res) => {
-        console.log(res.data);
-        this.setState({
-          shouts: res.data,
-        });
-      })
-      .catch((err) => console.log(err));
+    this.props.getShouts();
   }
 
   // RENDER //
   render() {
-    let recentShoutsMarkup = this.state.shouts ? (
-      this.state.shouts.map((shout) => (
-        <Shout key={shout.shoutId} shout={shout} />
-      ))
+    const { shouts, loading } = this.props.data;
+
+    let recentShoutsMarkup = !loading ? (
+      shouts.map((shout) => <Shout key={shout.shoutId} shout={shout} />)
     ) : (
       <p>Loading...</p>
     );
@@ -49,5 +42,13 @@ class home extends Component {
   }
 }
 /////////////////////////////////////////////
+home.propTypes = {
+  getShout: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
 
-export default home;
+const mapStateToProps = (state) => ({
+  data: state.data,
+});
+
+export default connect(mapStateToProps, { getShouts })(home);

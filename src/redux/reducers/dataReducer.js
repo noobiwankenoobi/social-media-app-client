@@ -1,0 +1,48 @@
+import {
+  SET_SHOUTS,
+  LIKE_SHOUT,
+  UNLIKE_SHOUT,
+  LOADING_DATA,
+  DELETE_SHOUT,
+} from "../types";
+
+const initialState = {
+  shouts: [],
+  shout: {},
+  loading: false,
+};
+
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case LOADING_DATA:
+      return {
+        ...state,
+        loading: true,
+      };
+    case SET_SHOUTS:
+      return {
+        ...state,
+        shouts: action.payload,
+        loading: false,
+      };
+    case LIKE_SHOUT:
+    case UNLIKE_SHOUT:
+      let index = state.shouts.findIndex(
+        (shout) => shout.shoutId === action.payload.shoutId
+      );
+      state.shouts[index] = action.payload;
+      return {
+        ...state,
+      };
+    case DELETE_SHOUT:
+      index = state.shouts.findIndex(
+        (shout) => shout.shoutId === action.payload
+      );
+      state.shouts.splice(index, 1);
+      return {
+        ...state,
+      };
+    default:
+      return state;
+  }
+}

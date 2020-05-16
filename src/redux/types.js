@@ -8,3 +8,9 @@ export const SET_ERRORS = "SET_ERRORS";
 export const LOADING_UI = "LOADING_UI";
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
 // DATA REDUCER TYPES
+export const SET_SHOUTS = "SET_SHOUTS";
+export const SET_SHOUT = "SET_SHOUT";
+export const LIKE_SHOUT = "LIKE_SHOUT";
+export const UNLIKE_SHOUT = "UNLIKE_SHOUT";
+export const LOADING_DATA = "LOADING_DATA";
+export const DELETE_SHOUT = "DELETE_SHOUT";
