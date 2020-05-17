@@ -15,7 +15,7 @@ import axios from "axios";
 
 /////////////////////
 // GET ALL SHOUTS //
-////////////////////////////////////////
+/////////////////////////////////////////////
 export const getShouts = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
@@ -33,11 +33,11 @@ export const getShouts = () => (dispatch) => {
       });
     });
 };
-//////////////////////////////////////////
+//////////////////////////////////////////////
 
 ////////////////////
 // GET ONE SHOUT //
-/////////////////////////////////////////
+/////////////////////////////////////////////
 export const getShout = (shoutId) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
@@ -51,11 +51,11 @@ export const getShout = (shoutId) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-/////////////////////////////////////////
+///////////////////////////////////////////////
 
 ///////////////////
 // POST a SHOUT //
-/////////////////////////////////////////
+/////////////////////////////////////////////
 export const postShout = (newShout) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
@@ -78,7 +78,7 @@ export const postShout = (newShout) => (dispatch) => {
 
 ////////////////////
 // LIKE A SHOUT //
-////////////////////////////////////////
+/////////////////////////////////////////////////
 export const likeShout = (shoutId) => (dispatch) => {
   axios
     .get(`/shout/${shoutId}/like`)
@@ -94,7 +94,7 @@ export const likeShout = (shoutId) => (dispatch) => {
 
 //////////////////////
 // UNLIKE A SHOUT //
-////////////////////////////////////////
+///////////////////////////////////////////////////
 export const unlikeShout = (shoutId) => (dispatch) => {
   axios
     .get(`/shout/${shoutId}/unlike`)
@@ -110,7 +110,7 @@ export const unlikeShout = (shoutId) => (dispatch) => {
 
 ///////////////////
 // DELETE SHOUT //
-/////////////////
+/////////////////////////////////////////////////
 export const deleteShout = (shoutId) => (dispatch) => {
   axios
     .delete(`/shout/${shoutId}`)

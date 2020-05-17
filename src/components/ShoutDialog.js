@@ -40,6 +40,16 @@ const styles = (theme) => ({
   closeButton: {
     position: "absolute",
     left: "90%",
+    top: "10%",
+  },
+  expandButton: {
+    position: "absolute",
+    left: "90%",
+  },
+  spinnerDiv: {
+    textAlign: "center",
+    marginTop: 50,
+    marginBottom: 50,
   },
 });
 
@@ -63,22 +73,16 @@ class ShoutDialog extends Component {
   render() {
     const {
       classes,
-      shout: {
-        shoutId,
-        body,
-        createdAt,
-        likeCount,
-        commentCount,
-        userImage,
-        userHandle,
-      },
+      shout: { body, createdAt, userImage, userHandle },
       ui: { loading },
     } = this.props;
 
     const dialogMarkup = loading ? (
-      <CircularProgress size={200} />
+      <div className="spinnerDiv">
+        <CircularProgress size={200} />
+      </div>
     ) : (
-      <Grid container spacing={16}>
+      <Grid container spacing={2}>
         <Grid item sm={5}>
           <img src={userImage} alt="Profile" className={classes.profileImage} />
         </Grid>

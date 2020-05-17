@@ -11,14 +11,13 @@ import { Card, Typography, CardContent, CardMedia } from "@material-ui/core";
 import MyButton from "../util/MyButton";
 // ICONS
 import ChatIcon from "@material-ui/icons/Chat";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 // COMPONENTS
 import DeleteShout from "./DeleteShout";
 import ShoutDialog from "./ShoutDialog";
 // REDUX
 import { connect } from "react-redux";
-import { likeShout, unlikeShout } from "../redux/actions/dataActions";
+// import { likeShout, unlikeShout } from "../redux/actions/dataActions";
+import { LikeButton } from "./LikeButton";
 
 // STYLES for COMPONENT
 const styles = {
@@ -40,25 +39,6 @@ const styles = {
 // SHOUT COMPONENT //
 ///////////////////////////////////////////////
 class Shout extends Component {
-  likedShout = () => {
-    if (
-      this.props.user.likes &&
-      this.props.user.likes.find(
-        (like) => like.shoutId === this.props.shout.shoutId
-      )
-    )
-      return true;
-    else return false;
-  };
-
-  likeShout = () => {
-    this.props.likeShout(this.props.shout.shoutId);
-  };
-
-  unlikeShout = () => {
-    this.props.unlikeShout(this.props.shout.shoutId);
-  };
-
   render() {
     dayjs.extend(relativeTime);
     // PROPS
@@ -80,21 +60,6 @@ class Shout extends Component {
     } = this.props;
 
     // LIKE BUTTON
-    const likeButton = !authenticated ? (
-      <MyButton tip="Like">
-        <Link to="/login">
-          <FavoriteBorder color="primary" />
-        </Link>
-      </MyButton>
-    ) : this.likedShout() ? (
-      <MyButton tip="Undo like" onClick={this.unlikeShout}>
-        <FavoriteIcon color="primary" />
-      </MyButton>
-    ) : (
-      <MyButton tip="Like" onClick={this.likeShout}>
-        <FavoriteBorder color="primary" />
-      </MyButton>
-    );
 
     // DELETE BUTTON // Depends on authenticated
     const deleteButton =
@@ -124,7 +89,7 @@ class Shout extends Component {
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant="body1">{body}</Typography>
-          {likeButton}
+          {/* <LikeButton shoutId={shoutId} /> */}
           <span>{likeCount} Likes</span>
           <MyButton tip="comments">
             <ChatIcon color="primary" />
@@ -138,8 +103,6 @@ class Shout extends Component {
 }
 //////////////////////////////////////////////////////////
 Shout.propTypes = {
-  likeShout: PropTypes.func.isRequired,
-  unlikeShout: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   shout: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
@@ -149,13 +112,5 @@ const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-const mapActionsToProps = {
-  likeShout,
-  unlikeShout,
-};
-
-export default connect(
-  mapStateToProps,
-  mapActionsToProps
-)(withStyles(styles)(Shout));
+export default connect(mapStateToProps)(withStyles(styles)(Shout));
 // export default Shout;

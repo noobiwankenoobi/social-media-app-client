@@ -47,6 +47,9 @@ const styles = {
   },
 };
 
+////////////
+// LOGIN //
+////////////////////////////////////////////
 class login extends Component {
   constructor() {
     super();
@@ -148,6 +151,7 @@ class login extends Component {
     );
   }
 }
+////////////////////////////////////////////
 
 login.propTypes = {
   classes: PropTypes.object.isRequired,
