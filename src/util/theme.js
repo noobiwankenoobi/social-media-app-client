@@ -18,4 +18,17 @@ export default {
     width: "100%",
     borderBottom: "1px solid rgba(0,0,0,0.1)",
   },
+  progress: {
+    position: "absolute",
+  },
+  button: {
+    marginTop: 20,
+    position: "relative",
+  },
+  pageTitle: {
+    margin: "10px auto 10px auto",
+  },
+  image: {
+    margin: "20px auto 20px auto",
+  },
 };

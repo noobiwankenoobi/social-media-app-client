@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import MyButton from "../../util/MyButton";
 import LikeButton from "./LikeButton";
 import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 // MUI
 import withStyles from "@material-ui/core/styles/withStyles";
 import Dialog from "@material-ui/core/Dialog";
@@ -14,6 +15,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import UnfoldMore from "@material-ui/icons/UnfoldMore";
+
 // OTHER
 import dayjs from "dayjs";
 // ICONS
@@ -21,7 +23,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import ChatIcon from "@material-ui/icons/Chat";
 // REDUX
 import { connect } from "react-redux";
-import { getShout } from "../../redux/actions/dataActions";
+import { getShout, clearErrors } from "../../redux/actions/dataActions";
 // FUNCTIONS
 
 // STYLES
@@ -40,7 +42,7 @@ const styles = (theme) => ({
   closeButton: {
     position: "absolute",
     left: "90%",
-    top: "10%",
+    top: 10,
   },
   expandButton: {
     position: "absolute",
@@ -50,6 +52,14 @@ const styles = (theme) => ({
     textAlign: "center",
     marginTop: 50,
     marginBottom: 50,
+  },
+  invisibleSeparator: {
+    border: "none",
+    margin: 4,
+  },
+  visibleSeparator: {
+    width: "100%",
+    borderBottom: "1px solid rgba(0,0,0,0.1)",
   },
 });
 
@@ -68,6 +78,7 @@ class ShoutDialog extends Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    this.props.clearErrors();
   };
 
   render() {
@@ -91,7 +102,7 @@ class ShoutDialog extends Component {
         <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={2}>
+      <Grid container spacing={16}>
         <Grid item sm={5}>
           <img src={userImage} alt="Profile" className={classes.profileImage} />
         </Grid>
@@ -118,6 +129,8 @@ class ShoutDialog extends Component {
           <span>{commentCount} comments</span>
         </Grid>
         <hr className={classes.visibleSeparator} />
+        <CommentForm shoutId={shoutId} />
+        <hr className={classes.invisibleSeparator} />
         <Comments comments={comments} />
       </Grid>
     );
@@ -160,6 +173,7 @@ ShoutDialog.propTypes = {
   userHandle: PropTypes.string.isRequired,
   shout: PropTypes.object.isRequired,
   ui: PropTypes.object.isRequired,
+  clearErrors: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -169,6 +183,7 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = {
   getShout,
+  clearErrors,
 };
 
 export default connect(
