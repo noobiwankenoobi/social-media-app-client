@@ -6,9 +6,9 @@ import PropTypes from "prop-types";
 //COMPONENTS
 import MyButton from "../../util/MyButton";
 import PostShout from "../shout/PostShout";
+import Notifications from "./Notifications";
 // ICONS
 import HomeIcon from "@material-ui/icons/Home";
-import Notifications from "@material-ui/icons/Notifications";
 // MUI Stuff
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -29,9 +29,8 @@ class Navbar extends Component {
                   <HomeIcon color="secondary" />
                 </MyButton>
               </Link>
-              <MyButton tip="Notifications">
-                <Notifications color="secondary" />
-              </MyButton>
+
+              <Notifications color="secondary" />
             </Fragment>
           ) : (
             <Fragment>

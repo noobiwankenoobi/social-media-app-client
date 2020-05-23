@@ -69,6 +69,8 @@ const styles = (theme) => ({
 class ShoutDialog extends Component {
   state = {
     open: false,
+    oldPath: "",
+    newPath: "",
   };
 
   componentDidMount() {
@@ -78,11 +80,21 @@ class ShoutDialog extends Component {
   }
 
   handleOpen = () => {
-    this.setState({ open: true });
+    let oldPath = window.location.pathname;
+
+    const { userHandle, shoutId } = this.props;
+    const newPath = `users/${userHandle}/shout/${shoutId}`;
+
+    if (oldPath === newPath) oldPath = `/users/${userHandle}`;
+
+    window.history.pushState(null, null, newPath);
+
+    this.setState({ open: true, oldPath, newPath });
     this.props.getShout(this.props.shoutId);
   };
 
   handleClose = () => {
+    window.history.pushState(null, null, this.state.oldPath);
     this.setState({ open: false });
     this.props.clearErrors();
   };
