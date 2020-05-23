@@ -22,7 +22,7 @@ import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 // REDUX
 import { connect } from "react-redux";
 // FUNCTIONS
-import { logoutUser, uploadImage } from "../redux/actions/userActions";
+import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 ///////////////////////////////////////////////////////////////////////
 
 /////////////

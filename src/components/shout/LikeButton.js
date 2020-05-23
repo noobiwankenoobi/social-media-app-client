@@ -6,9 +6,9 @@ import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 // REDUX
 import { connect } from "react-redux";
-import { likeShout, unlikeShout } from "../redux/actions/dataActions";
+import { likeShout, unlikeShout } from "../../redux/actions/dataActions";
 // COMPONENTS
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 
 //////////////////
 // LIKE BUTTON //
@@ -33,7 +33,6 @@ export class LikeButton extends Component {
 
   // RENDER
   render() {
-    console.log(this.props);
     const { authenticated } = this.props.user;
     const likeButton = !authenticated ? (
       <MyButton tip="Like">

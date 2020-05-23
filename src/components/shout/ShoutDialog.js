@@ -3,7 +3,9 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 // COMPONENTS
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
+import LikeButton from "./LikeButton";
+import Comments from "./Comments";
 // MUI
 import withStyles from "@material-ui/core/styles/withStyles";
 import Dialog from "@material-ui/core/Dialog";
@@ -16,18 +18,16 @@ import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import dayjs from "dayjs";
 // ICONS
 import CloseIcon from "@material-ui/icons/Close";
+import ChatIcon from "@material-ui/icons/Chat";
 // REDUX
 import { connect } from "react-redux";
-import { getShout } from "../redux/actions/dataActions";
+import { getShout } from "../../redux/actions/dataActions";
 // FUNCTIONS
 
 // STYLES
 const styles = (theme) => ({
   ...theme.spreadThis,
-  invisibleSeparator: {
-    border: "none",
-    margin: 4,
-  },
+
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -73,13 +73,22 @@ class ShoutDialog extends Component {
   render() {
     const {
       classes,
-      shout: { body, createdAt, userImage, userHandle },
+      shout: {
+        body,
+        createdAt,
+        userImage,
+        shoutId,
+        userHandle,
+        likeCount,
+        commentCount,
+        comments,
+      },
       ui: { loading },
     } = this.props;
 
     const dialogMarkup = loading ? (
       <div className="spinnerDiv">
-        <CircularProgress size={200} />
+        <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
       <Grid container spacing={2}>
@@ -101,7 +110,15 @@ class ShoutDialog extends Component {
           </Typography>
           <hr className={classes.invisibleSeparator} />
           <Typography variant="body1">{body}</Typography>
+          <LikeButton shoutId={shoutId} />
+          <span>{likeCount} likes</span>
+          <MyButton tip="comments">
+            <ChatIcon color="primary" />
+          </MyButton>
+          <span>{commentCount} comments</span>
         </Grid>
+        <hr className={classes.visibleSeparator} />
+        <Comments comments={comments} />
       </Grid>
     );
 

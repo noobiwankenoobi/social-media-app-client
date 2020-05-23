@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 // COMPONENTS
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 // MUI
 import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button";
@@ -18,7 +18,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 // REDUX
 import { connect } from "react-redux";
-import { postShout, clearErrors } from "../redux/actions/dataActions";
+import { postShout, clearErrors } from "../../redux/actions/dataActions";
 // FUNCTIONS
 
 const styles = (theme) => ({

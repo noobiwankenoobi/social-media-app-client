@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 import { getShouts } from "../redux/actions/dataActions";
 
 // COMPONENTS
-import Shout from "../components/Shout";
-import Profile from "../components/Profile";
+import Shout from "../components/shout/Shout";
+import Profile from "../components/profile/Profile";
 
 //////////////////////
 // HOME PAGE ROUTE //

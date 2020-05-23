@@ -17,7 +17,7 @@ import EditIcon from "@material-ui/icons/Edit";
 // REDUX
 import { connect } from "react-redux";
 // FUNCTIONS
-import { editUserDetails } from "../redux/actions/userActions";
+import { editUserDetails } from "../../redux/actions/userActions";
 
 // STYLES
 const styles = (theme) => ({

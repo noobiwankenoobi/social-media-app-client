@@ -8,16 +8,15 @@ import relativeTime from "dayjs/plugin/relativeTime";
 //MUI Stuff
 import { withStyles } from "@material-ui/core/styles";
 import { Card, Typography, CardContent, CardMedia } from "@material-ui/core";
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 // ICONS
 import ChatIcon from "@material-ui/icons/Chat";
 // COMPONENTS
 import DeleteShout from "./DeleteShout";
 import ShoutDialog from "./ShoutDialog";
+import LikeButton from "./LikeButton";
 // REDUX
 import { connect } from "react-redux";
-// import { likeShout, unlikeShout } from "../redux/actions/dataActions";
-import { LikeButton } from "./LikeButton";
 
 // STYLES for COMPONENT
 const styles = {
@@ -89,7 +88,7 @@ class Shout extends Component {
             {dayjs(createdAt).fromNow()}
           </Typography>
           <Typography variant="body1">{body}</Typography>
-          {/* <LikeButton shoutId={shoutId} /> */}
+          <LikeButton shoutId={shoutId} />
           <span>{likeCount} Likes</span>
           <MyButton tip="comments">
             <ChatIcon color="primary" />

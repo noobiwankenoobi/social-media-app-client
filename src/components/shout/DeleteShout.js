@@ -3,7 +3,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 //MUI Stuff
 import { withStyles } from "@material-ui/core/styles";
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 // ICONS
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -13,7 +13,7 @@ import DeleteIcon from "@material-ui/icons/DeleteOutline";
 
 // REDUX
 import { connect } from "react-redux";
-import { deleteShout } from "../redux/actions/dataActions";
+import { deleteShout } from "../../redux/actions/dataActions";
 
 const styles = {
   deleteButton: {
