@@ -144,6 +144,30 @@ export const deleteShout = (shoutId) => (dispatch) => {
 };
 /////////////////////////////////////////
 
+////////////////////
+// GET USER DATA //
+///////////////////////////////////////
+export const getUserData = (userHandle) => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get(`/user/${userHandle}`)
+    .then((res) => {
+      dispatch({
+        type: SET_SHOUTS,
+        payload: res.data.shouts,
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: SET_SHOUTS,
+        payload: null,
+      });
+    });
+};
+
+///////////////////
+// CLEAR ERRORS //
+//////////////////////////////////////////////////
 export const clearErrors = () => (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

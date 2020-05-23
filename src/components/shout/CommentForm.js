@@ -10,7 +10,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // REDUX
 import { connect } from "react-redux";
 import { submitComment } from "../../redux/actions/dataActions";
-import { SET_ERRORS } from "../../redux/types";
 
 //////////////////////////////////////////////////////
 
