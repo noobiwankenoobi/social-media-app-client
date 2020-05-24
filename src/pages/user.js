@@ -5,6 +5,8 @@ import axios from "axios";
 // COMPONENTS
 import Shout from "../components/shout/Shout";
 import StaticProfile from "../components/profile/StaticProfile";
+import ShoutSkeleton from "../util/ShoutSkeleton";
+import ProfileSkeleton from "../util/ProfileSkeleton";
 // MUI
 import Grid from "@material-ui/core/Grid";
 // REDUX
@@ -42,7 +44,7 @@ class user extends Component {
     const { shoutIdParam } = this.state;
 
     const shoutsMarkup = loading ? (
-      <p>Loading data...</p>
+      <ShoutSkeleton />
     ) : shouts === null ? (
       <p>No shouts from this user</p>
     ) : !shoutIdParam ? (
@@ -58,7 +60,7 @@ class user extends Component {
       <Grid container spacing={2}>
         <Grid item sm={12} xs={12}>
           {this.state.profile === null ? (
-            <p>Loading profile</p>
+            <ProfileSkeleton />
           ) : (
             <StaticProfile profile={this.state.profile} />
           )}

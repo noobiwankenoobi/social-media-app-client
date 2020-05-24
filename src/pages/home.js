@@ -10,6 +10,7 @@ import { getShouts } from "../redux/actions/dataActions";
 // COMPONENTS
 import Shout from "../components/shout/Shout";
 import Profile from "../components/profile/Profile";
+import ShoutSkeleton from "../util/ShoutSkeleton";
 
 //////////////////////
 // HOME PAGE ROUTE //
@@ -26,7 +27,7 @@ class home extends Component {
     let recentShoutsMarkup = !loading ? (
       shouts.map((shout) => <Shout key={shout.shoutId} shout={shout} />)
     ) : (
-      <p>Loading...</p>
+      <ShoutSkeleton />
     );
     return (
       <Grid container spacing={2}>
