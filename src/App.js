@@ -26,6 +26,11 @@ import axios from "axios";
 
 // STYLES
 const theme = createMuiTheme(themeFile);
+
+// AXIOS DEFAULT
+axios.defaults.baseURL =
+  "https://us-central1-social-media-app-v01.cloudfunctions.net/api";
+
 // AUTH
 // let authenticated;
 const token = localStorage.FBIdToken;
