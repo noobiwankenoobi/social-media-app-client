@@ -62,12 +62,11 @@ class Notifications extends Component {
         ? (notificationsIcon = (
             <Badge
               badgeContent={
-                3
-                // notifications.filter(
-                //   (notification) => notification.read === false
-                // ).length
+                notifications.filter(
+                  (notification) => notification.read === false
+                ).length
               }
-              color="secondary"
+              color="white"
             >
               <NotificationsIcon />
             </Badge>
